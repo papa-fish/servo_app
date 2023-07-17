@@ -11,14 +11,13 @@ CREATE TABLE servos (
     owner TEXT NOT NULL,
     industryid INTEGER,
     address TEXT NOT NULL,
-    suburbTEXT NOT NULL,
+    suburb TEXT NOT NULL,
     state TEXT NOT NULL,
     spatialconfidence INTEGER,
     revised INTEGER,
     comment TEXT,
     lat DOUBLE PRECISION NOT NULL,
     long DOUBLE PRECISION NOT NULL
-    
 );
 
 
