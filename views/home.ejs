@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Document</title>
 </head>
 <body>
@@ -38,8 +38,8 @@
             <section>Nearest</section>
         </aside>
     </div>
-    <script type="module" src="servos_api.js"></script>
-    <script type="module" src="client.js"></script>
+    <script type="module" src="/servos_api.js"></script>
+    <script type="module" src="/client.js"></script>
     <script>
         ;((g) => {
           var h,
@@ -75,7 +75,7 @@
           d[l]
             ? console.warn(p + ' only loads once. Ignoring:', g)
             : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)))
-        })({ key: 'API KEY', v: 'weekly' })
+        })({ key: '<%= process.env.API_KEY %>', v: 'weekly' })
       </script>
 </body>
 </html>
