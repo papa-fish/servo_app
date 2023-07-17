@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
