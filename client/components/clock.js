@@ -29,4 +29,4 @@ export function currentTime() {
     document.querySelector(".clock").innerText = time; 
     let t = setTimeout(function(){ currentTime() }, 1000);
   }
-  
+  currentTime();
