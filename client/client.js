@@ -1,6 +1,5 @@
 import { fetchStations } from "./servos_api.js";
-
-const mapCenter = document.querySelector(".center-location");
+import { mapCentreLocation } from "./components/map_centre.js";
 
 let map;
 
@@ -20,30 +19,9 @@ async function initMap() {
     mapId: "DEMO_MAP_ID",
   });
 
-
-  mapCenter.innerHTML =`
-  <span> Map Centre </span><br>
-  <span>Lat ${position.lat} </span>
-  <span>Long ${position.lng} </span>`
-
-  map.addListener("dragend", handleCenter);
-
-  function handleCenter() {
-  
+  mapCentreLocation(position, map)
  
-    let centerLocation = map.getCenter();
-    let lat = centerLocation.lat();
-    let long = centerLocation.lng();
- 
-    mapCenter.innerHTML =`
-    <span> Map Centre </span><br>
-    <span>Lat ${lat} </span>
-    <span>Long ${long} </span>`
-
-  }
- 
-
-    fetchStations().then((stations) => {
+  fetchStations().then((stations) => {
     for (let station of stations) {
       let position = { lat: station.lat, lng: station.long };
       new AdvancedMarkerElement({
@@ -53,7 +31,5 @@ async function initMap() {
     }
   });
 }
-
-
 
 initMap();
