@@ -16,9 +16,7 @@ reader.on("line", row => {
   // And then push into the data array
   data.push(row.split(","));
 
-  console.log(`${data[0][1]}`);
   const sql = `INSERT INTO servos(featuretype, description, class, fid, name, operationalstatus, owner, industryid, address, suburb, state, spatialconfidence, revised, comment, lat,long) VALUES ('${data[0][1]}','${data[0][2]}','${data[0][3]}',${data[0][4]}, '${data[0][5]}','${data[0][6]}','${data[0][7]}',${data[0][8] || 0},'${data[0][9]}','${data[0][10]}','${data[0][11]}',${data[0][12]},${data[0][13]},'${data[0][14]}','${data[0][15]}','${data[0][16]}');`;
-  console.log(sql);
     db.query(sql).then(() => console.log('row inserted'))
 });
 
