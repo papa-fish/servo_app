@@ -9,4 +9,15 @@ router.get('/stations/all', (req,res) => {
 }
 )
 
+router.get('/owners', (req, res) => {
+    let owners = []
+    Servo.findOwners()
+        .then(owner => {
+            owner.forEach(item => {
+                owners.push(item["owner"])
+            })
+        })
+        .then(() => res.json({owner: owners}))
+})
+
 module.exports = router;
