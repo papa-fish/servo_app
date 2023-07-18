@@ -1,31 +1,58 @@
 require('dotenv').config()
 const db = require('../index')
 
-console.log('DATABASE URL', process.env.DATABASE_URL)
-
 const fs = require("fs");
 const readline = require("readline");
 
 const stream = fs.createReadStream("./database/seed/stations.csv");
 const reader = readline.createInterface({ input: stream });
 
-let data = [];
-
+let result;
 reader.on("line", row => {
-  // This will split a row string into an array
-  // And then push into the data array
+  result = [];
+  let insideQuotes = false;
+  let currentElement = '';
+  
+  for (let i = 0; i < row.length; i++) {
+    const char = row[i];
+  
+    if (char === ',' && !insideQuotes) {
+      result.push(currentElement.trim().replaceAll("'", "''").replaceAll('"', ''));
+      currentElement = '';
+    } else {
+      currentElement += char;
+      if (char === '"') {
+        insideQuotes = !insideQuotes;
+      }
+    }
+  }
+  
+  result.push(currentElement.trim());
 
-  data = [row.replaceAll("'", "''").split(',')]
+  const sql = `INSERT INTO servos(featuretype, description, class, fid, name, operationalstatus, owner, industryid, address, suburb, state, spatialconfidence, revised, comment, lat,long) 
+  VALUES (
+    '${result[1] || ""}',
+    '${result[2] || ""}',
+    '${result[3] || ""}',
+    ${result[4] || 0},
+    '${result[5] || ""}',
+    '${result[6] || ""}',
+    '${result[7] || ""}',
+    ${result[8] || 0},
+    '${result[9] || ""}',
+    '${result[10] || ""}',
+    '${result[11] || ""}',
+    ${result[12] || 0},
+    ${result[13] || 0},
+    '${result[14] || ""}',
+    ${result[15] || 0},
+    ${result[16] || 0}
+  );`;
+  db.query(sql).then(() => console.log('row inserted'))
 
-  // console.log(data)
-
-
-  const sql = `INSERT INTO servos(featuretype, description, class, fid, name, operationalstatus, owner, industryid, address, suburb, state, spatialconfidence, revised, comment, lat,long) VALUES ('${data[0][1] || ""}  ','${data[0][2] || ""}','${data[0][3] || ""}',${data[0][4] || 0}, '${data[0][5] || ""}','${data[0][6] || ""}','${data[0][7] || ""}',${data[0][8] || 0},'${data[0][9]}','${data[0][10] || ""}','${data[0][11] || ""}',${data[0][12] || 0},${data[0][13] || 0},'${data[0][14] || ""}',${data[0][15] || 0}, ${data[0][16] || 0});`;
-  // console.log(sql);
-    db.query(sql).then(() => console.log('row inserted'))
 });
 
 reader.on("close", () => {
   //  Reached the end of file
-  console.log(data);
+  console.log(result);
 });

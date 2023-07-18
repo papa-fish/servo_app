@@ -30,6 +30,7 @@ async function initMap() {
 
   function handleCenter() {
   
+ 
     let centerLocation = map.getCenter();
     let lat = centerLocation.lat();
     let long = centerLocation.lng();
@@ -40,11 +41,11 @@ async function initMap() {
     <span>Long ${long} </span>`
 
   }
+ 
 
-  fetchStations().then((stations) => {
+    fetchStations().then((stations) => {
     for (let station of stations) {
       let position = { lat: station.lat, lng: station.long };
-      console.log(position);
       new AdvancedMarkerElement({
         position: position,
         map: map,
@@ -52,5 +53,7 @@ async function initMap() {
     }
   });
 }
+
+
 
 initMap();
