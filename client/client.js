@@ -1,4 +1,9 @@
   
+  // import {fetchStations } from './servos_api.js'
+
+  // fetchStations().then(res => console.log(res))
+  
+  
   let map
   
   async function initMap() {
