@@ -1,5 +1,6 @@
 import { fetchStations } from "./servos_api.js";
 import { mapCentreLocation } from "./components/map_centre.js";
+import { currentTime } from "./components/clock.js";
 
 let map;
 
@@ -33,3 +34,4 @@ async function initMap() {
 }
 
 initMap();
+currentTime();
