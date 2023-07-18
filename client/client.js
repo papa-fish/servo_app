@@ -1,7 +1,8 @@
 import { fetchStations } from "./servos_api.js";
 import { mapCentreLocation } from "./components/map_centre.js";
+import { userLocation } from "./components/user_location.js";
 
-let map;
+let map, infoWindow;
 
 async function initMap() {
   // The location of Uluru
@@ -20,6 +21,7 @@ async function initMap() {
   });
 
   mapCentreLocation(position, map)
+  userLocation(map, infoWindow)
  
   fetchStations().then((stations) => {
     for (let station of stations) {
