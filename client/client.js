@@ -28,6 +28,35 @@ async function initMap() {
         position: position,
         map: map,
       });
+      const contentString =`<h4>${station.name}</h4><p>${station.address}</p>`;
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+      const marker = new google.maps.Marker({
+        position: position,
+        map,
+      });
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+        });
+      });
+
+      const stationName =`<h4>${station.name}</h4>`;
+      const infoStationNamewindow = new google.maps.InfoWindow({
+        content: stationName,
+      });
+      marker.addListener("mouseover", () => {
+        infoStationNamewindow.open({
+          anchor: marker,
+          map,
+        });
+
+        marker.addListener('mouseout', () => {
+          infoStationNamewindow.close()
+        })
+      });
     }
   });
 }
