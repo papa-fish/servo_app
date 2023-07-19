@@ -9,3 +9,7 @@ export function fetchStats(){
 export function fetchRandomStation(){
     return fetch('/api/stations/random').then(res => res.json())
 }
+
+export function fetchStationsByBound(queryParams) {
+    return fetch('/api/stations/bounds?' + new URLSearchParams(queryParams))
+}

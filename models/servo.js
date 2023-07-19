@@ -12,7 +12,6 @@ function findOwners() {
     return db.query(sql).then(owners => owners.rows)
 }
 
-
 function getRandomStation(totalRecords) {
     const randomOffset = Math.floor(Math.random()*totalRecords)
     sql = `SELECT * FROM servos LIMIT 1 OFFSET ${randomOffset};`
@@ -37,9 +36,14 @@ function getNearestStations(givenLat, givenLong) {
     FROM servos
     ORDER BY distance
     LIMIT 10;`
+    console.log(sql)
     return db.query(sql).then (res => res.rows)
 }
 
+function getNearestStationsByBounds({ maxLong, maxLat, minLong, minLat }) {
+    const sql = `SELECT * FROM servos WHERE long > ${minLong} AND lat < ${maxLat} AND long < ${maxLong} AND lat > ${minLat};`
+    return db.query(sql).then (res => res.rows)
+}
 
 const Servo = {
     findAll,
@@ -47,7 +51,8 @@ const Servo = {
     getRandomStation,
     getStats,
     getTotalNumRecords,
-    getNearestStations
+    getNearestStations,
+    getNearestStationsByBounds
 }
 
 module.exports = Servo;

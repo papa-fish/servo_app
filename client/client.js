@@ -1,4 +1,4 @@
-import { fetchStations } from "./servos_api.js";
+import { fetchStations, fetchStationsByBound } from "./servos_api.js";
 import { mapCentreLocation } from "./components/map_centre.js";
 import { userLocation } from "./components/user_location.js";
 
@@ -16,6 +16,16 @@ async function initMap() {
     maxZoom: null,
     mapId: "DEMO_MAP_ID",
   });
+
+  google.maps.event.addListener(map, 'idle', function() {
+    const bounds = map.getBounds();
+    fetchStationsByBound({
+      maxLong: bounds.Ha.hi,
+      maxLat: bounds.Va.hi,
+      minLong: bounds.Ha.lo,
+      minLat: bounds.Va.lo,
+    })
+  })
 
   mapCentreLocation(position, map)
   userLocation(map, infoWindow)
@@ -62,5 +72,5 @@ async function initMap() {
     }
   });
 }
-// aNord = this.Map
+
 initMap();

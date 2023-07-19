@@ -49,7 +49,12 @@ router.get('/stations/nearest', (req,res) => {
 })
 
 router.get('/stations/bounds', (req, res) => {
-    res.send('bounds')
+    const { maxLong, maxLat, minLong, minLat } = req.query
+    if (!minLong || !maxLong || !minLat || !maxLat) {
+        return res.status(400);
+    }
+    Servo.getNearestStationsByBounds({ maxLong, maxLat, minLong, minLat })
+    .then(dbRes => res.json(dbRes))
 })
 
 module.exports = router;
