@@ -36,7 +36,7 @@ export async function mapCentreLocation(position, map) {
               <h3>MAP CENTRE LOCATION</h3>
               <p>Lat: ${lat} </p>
               <p>Long: ${long} </p>
-              p><strong>${address} </strong></p>
+              <p><strong>${address} </strong></p>
             
             `
     })
