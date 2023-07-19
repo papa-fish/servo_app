@@ -62,5 +62,5 @@ async function initMap() {
     }
   });
 }
-aNord = this.Map
+// aNord = this.Map
 initMap();

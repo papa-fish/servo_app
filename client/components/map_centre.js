@@ -29,7 +29,6 @@ export async function mapCentreLocation(position, map) {
     geocoder
     .geocode({ location: {lat: lat, lng: long}} )
     .then(response => {
-      console.log(response)
       const address = response.results[0].formatted_address
       
           mapCenter.innerHTML =`
