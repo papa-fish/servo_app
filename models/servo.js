@@ -29,13 +29,25 @@ function getTotalNumRecords() {
     return db.query(sql).then(res => res.rows[0])
 }
 
+function getNearestStations(givenLat, givenLong) {
+    const sql = `SELECT id, name, lat, long, 
+    6371 * 2 * ASIN(SQRT(POWER(SIN(RADIANS(${givenLat} - lat) / 2), 2) +
+    COS(RADIANS(${givenLat})) * COS(RADIANS(lat)) *
+    POWER(SIN(RADIANS(${givenLong} - long) / 2), 2))) AS distance
+    FROM servos
+    ORDER BY distance
+    LIMIT 10;`
+    return db.query(sql).then (res => res.rows)
+}
+
 
 const Servo = {
     findAll,
     findOwners,
     getRandomStation,
     getStats,
-    getTotalNumRecords
+    getTotalNumRecords,
+    getNearestStations
 }
 
 module.exports = Servo;
