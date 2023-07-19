@@ -48,4 +48,8 @@ router.get('/stations/nearest', (req,res) => {
     })
 })
 
+router.get('/stations/bounds', (req, res) => {
+    res.send('bounds')
+})
+
 module.exports = router;
