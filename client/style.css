@@ -131,3 +131,8 @@ footer {
   .stats-items-wrapper > div:nth-child(odd) {
     background-color: rgb(244, 217, 198);
   }
+
+.latest-prices {
+  border: 1px black solid;
+  padding: 10px;
+}
