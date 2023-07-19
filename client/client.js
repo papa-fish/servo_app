@@ -1,6 +1,7 @@
 import { fetchStations, fetchStationsByBound } from "./servos_api.js";
 import { mapCentreLocation } from "./components/map_centre.js";
 import { userLocation } from "./components/user_location.js";
+import { spotlightClick } from "./components/spotlight.js";
 
 let map, infoWindow;
 
@@ -29,7 +30,8 @@ async function initMap() {
 
   mapCentreLocation(position, map)
   userLocation(map, infoWindow)
- 
+  spotlightClick(map, infoWindow)
+  
   fetchStations().then((stations) => {
     for (let station of stations) {
       let position = { lat: station.lat, lng: station.long };
