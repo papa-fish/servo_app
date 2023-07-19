@@ -10,8 +10,8 @@ function renderStats(stats) {
     totalWrapper.classList.add('stats-total')
     const totalStations = document.createElement('div')
     const totalOwners = document.createElement('div')
-    totalStations.textContent = `total stations: ${stats.total_stations}`
-    totalOwners.textContent = `total owners: ${stats.total_owners}`
+    totalStations.textContent = `Total stations: ${stats.total_stations}`
+    totalOwners.textContent = `Total owners: ${stats.total_owners}`
     totalWrapper.appendChild(totalStations)
     totalWrapper.appendChild(totalOwners)
     statsInfoSection.appendChild(totalWrapper)

@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
   /* border: 1px solid red; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .grid-wrapper {
@@ -87,14 +88,19 @@ img {
     /* display: table; */
 }
 
+.team-name {
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
 .about p { 
     /* display: table-cell;
     vertical-align: middle; */
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 h3 {
@@ -111,7 +117,6 @@ footer {
 .stats-info{
   background-color: rgb(248, 225, 196);
   padding: 10px;
-  padding-bottom: 40px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .stats-header{
@@ -159,7 +164,6 @@ footer {
   grid-template-areas:
   "header refresh"
   "nameAddress logo";
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .spotlight-header{
