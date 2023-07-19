@@ -1,7 +1,8 @@
 import { fetchStations } from "./servos_api.js";
 import { mapCentreLocation } from "./components/map_centre.js";
+import { userLocation } from "./components/user_location.js";
 
-let map;
+let map, infoWindow;
 
 async function initMap() {
   let position = { lat: -35.9211754139999, lng: 145.638305815 };
@@ -17,6 +18,7 @@ async function initMap() {
   });
 
   mapCentreLocation(position, map)
+  userLocation(map, infoWindow)
  
   fetchStations().then((stations) => {
     for (let station of stations) {
