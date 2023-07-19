@@ -4,9 +4,20 @@
 }
 
 .grid-wrapper {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     border: 1px black solid;
+}
+
+.flex-wrapper{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.flex-wrapper > section {
+  flex-grow: 1;
 }
 /* 
  * Always set the map height explicitly to define the size of the div element
@@ -95,42 +106,88 @@ footer {
     margin-top: 20px;
 }
   
-  
-  /* STATS SECTION */
+/* STATS SECTION */
 
-  .stats-info{
-    background-color: rgb(248, 225, 196);
-    padding: 10px;
-    padding-bottom: 40px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  .stats-header{
-    font-size: 24px;
-    font-weight: bold;
-  }
+.stats-info{
+  background-color: rgb(248, 225, 196);
+  padding: 10px;
+  padding-bottom: 40px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.stats-header{
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .stats-total{
-    font-size: 17px;
-    font-weight:550;
-    margin: 5px 0;
-  }
+.stats-total{
+  font-size: 17px;
+  font-weight:550;
+  margin: 5px 0;
+}
 
-  .stats-items-wrapper{
-    display: flex;
-    flex-direction: column;
-  }
+.stats-items-wrapper{
+  display: flex;
+  flex-direction: column;
+}
 
-  .stats-items {
-    display: flex;
-    font-weight: 100;
-    justify-content:space-between;
-    border-top: 1px solid black;
-    padding: 2px 0;
-  }
+.stats-items {
+  display: flex;
+  font-weight: 100;
+  justify-content:space-between;
+  border-top: 1px solid black;
+  padding: 2px 0;
+}
 
-  .stats-items-wrapper > div:nth-child(odd) {
-    background-color: rgb(244, 217, 198);
-  }
+.stats-items-wrapper > div:nth-child(odd) {
+  background-color: rgb(244, 217, 198);
+}
+
+
+/* SPOTLIGHT SECTION */
+
+.spotlight{
+  background-color: mistyrose;
+}
+.spotlight-info{
+  display: grid;
+  box-sizing: border-box;
+  padding: 10px;
+  row-gap: 10px;
+  column-gap: 5px;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "header refresh"
+  "nameAddress logo";
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.spotlight-header{
+  font-size: 24px;
+  font-weight: bold;
+  grid-area: header;
+}
+
+.spotlight-refresh{
+  grid-area: refresh;
+}
+
+.spotlight-logo{
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.spotlight-nameAddress{
+  grid-area: nameAddress;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LATEST PRICES */
 
 .latest-prices {
   border: 1px black solid;
