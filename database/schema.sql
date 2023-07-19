@@ -20,4 +20,11 @@ CREATE TABLE servos (
     long DOUBLE PRECISION NOT NULL
 );
 
+ALTER TABLE servos ADD logo_url TEXT; 
 
+UPDATE servos SET logo_url='images/caltex.png' WHERE owner ='Caltex';
+UPDATE servos SET logo_url='images/7-eleven.png' WHERE owner ='7-Eleven Pty Ltd';
+UPDATE servos SET logo_url='images/bp.png' WHERE owner ='BP';
+UPDATE servos SET logo_url='images/shell.png' WHERE owner ='Shell';
+UPDATE servos SET logo_url='images/united.png' WHERE owner ='United';
+UPDATE servos SET logo_url='images/pin.png' WHERE logo_url IS NULL;

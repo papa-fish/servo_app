@@ -1,28 +1,96 @@
-/* * {
+* {
     box-sizing: border-box;
-    border: 1px solid red;
-} */
+  /* border: 1px solid red; */
+}
 
 .grid-wrapper {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    border: 1px black solid;
 }
 /* 
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 
  */
- #map {
+#map {
     height: 100%;
-  }
+}
   
   /* 
      * Optional: Makes the sample page fill the window. 
      */
-  html,
-  body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
-  
-  
+}
+
+.individual-station {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    padding: 10px;
+    border: 1px black solid;
+}
+
+.station-details {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo {
+    margin: auto;
+    margin-right: 10px;
+}
+
+.nearest-station {
+    border: 1px black solid;
+}
+
+.nearest-station h3 {
+    padding: 10px;
+}
+
+.center-location {
+    padding: 10px;
+    border: 1px black solid;
+}
+
+.clock { 
+    border: 1px black solid;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.about {
+    padding: 10px;
+    border: 1px black solid;
+    /* display: table; */
+}
+
+.about p { 
+    /* display: table-cell;
+    vertical-align: middle; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 20px;
+}

@@ -7,11 +7,16 @@ fetchStations()
 
 function renderStations(stations) {
     for (let i=0; i<10; i++) {
-        const station = document.createElement('p')
-        const stationAddress = document.createElement('p')
-        station.innerHTML = stations[i].owner + ' ' + stations[i].name 
-        stationAddress.innerText = stations[i].address
+        let html = `
+            <img class="logo" src= '../${stations[i].logo_url}'>
+            <div>
+                <p class="station-details"><b>${stations[i].name}</b></p>
+                <p class="station-details">${stations[i].address}</p>
+            </div>
+        `
+        const station = document.createElement('div')
+        station.classList.add("individual-station")
+        station.innerHTML = html
         nearestSection.appendChild(station)
-        nearestSection.appendChild(stationAddress)
     }
 }
