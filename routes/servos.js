@@ -20,4 +20,23 @@ router.get('/owners', (req, res) => {
         .then(() => res.json({owner: owners}))
 })
 
+router.get('/stats', (req,res) => {
+    let totalStations = 0;
+    let totalOwners = 0;
+    Servo.getStats()
+    .then(stats =>  {
+        totalStations = stats.reduce((acc, station) => acc + Number(station.total), 0 )
+        totalOwners = stats.length
+        const filteredStats = stats.filter(item => item.total > 1)
+        const result = {owners: filteredStats, total_owners: totalOwners, total_stations: totalStations}
+        return res.json(result)
+    })
+})
+
+router.get('/stations/random', (req,res) => {
+    Servo.getTotalNumRecords()
+    .then(dbRes => Servo.getRandomStation(dbRes.count))
+    .then(stations => res.json(stations))
+})
+
 module.exports = router;
