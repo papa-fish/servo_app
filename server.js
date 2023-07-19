@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const port = process.env.PORT || 3000;
+let key = process.env.API_KEY
 const app = express();
 app.set('view engine', 'ejs')
 app.use(express.static('client'))
