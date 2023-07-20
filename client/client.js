@@ -20,19 +20,69 @@ async function initMap() {
 
   google.maps.event.addListener(map, 'idle', function() {
     const bounds = map.getBounds();
-    fetchStationsByBound({
-      maxLong: bounds.Ha.hi,
-      maxLat: bounds.Va.hi,
-      minLong: bounds.Ha.lo,
-      minLat: bounds.Va.lo,
-    })
+    renderMarkersByBound(bounds)
   })
 
   mapCentreLocation(position, map)
   userLocation(map, infoWindow)
   spotlightClick(map, infoWindow)
   
-  fetchStations().then((stations) => {
+  const bounds = map.getBounds();
+  renderMarkersByBound(bounds)
+  //   for (let station of stations) {
+  //     let position = { lat: station.lat, lng: station.long };
+      
+  //     const marker = new google.maps.Marker({
+  //       position: position,
+  //       map,
+  //       icon: {
+  //         url: `${station.logo_url}`,
+  //         scaledSize: new google.maps.Size(35, 35),
+  //       }
+  //     });
+
+  //     const contentString =`<h4>${station.name}</h4><p>${station.address}</p>`;
+  //     const infowindow = new google.maps.InfoWindow({
+  //       content: contentString,
+  //     });
+
+  //     marker.addListener("click", () => {
+  //       infowindow.open({
+  //         anchor: marker,
+  //         map,
+  //       });
+  //     });
+
+  //     const stationName =`<h4>${station.name}</h4>`;
+  //     const infoStationNamewindow = new google.maps.InfoWindow({
+  //       content: stationName,
+  //     });
+  //     marker.addListener("mouseover", () => {
+  //       infoStationNamewindow.open({
+  //         anchor: marker,
+  //         map,
+  //       });
+
+  //       marker.addListener('mouseout', () => {
+  //         infoStationNamewindow.close()
+  //       })
+  //     });
+  //   }
+  // });
+}
+
+initMap();
+
+
+
+function renderMarkersByBound(bounds) {
+  fetchStationsByBound({
+    maxLong: bounds.Ha.hi,
+    maxLat: bounds.Va.hi,
+    minLong: bounds.Ha.lo,
+    minLat: bounds.Va.lo,
+  })
+  .then((stations) => {
     for (let station of stations) {
       let position = { lat: station.lat, lng: station.long };
       
@@ -74,5 +124,3 @@ async function initMap() {
     }
   });
 }
-
-initMap();

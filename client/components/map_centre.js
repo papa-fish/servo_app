@@ -20,7 +20,7 @@ export async function mapCentreLocation(position, map) {
     `
   })
     
-  map.addListener("dragend", () => {
+  map.addListener("idle", () => {
     let centerLocation = map.getCenter();
     let lat = centerLocation.lat();
     let long = centerLocation.lng();
