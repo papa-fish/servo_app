@@ -43,7 +43,6 @@ router.get('/stations/nearest', (req,res) => {
     const { lat, long } = req.query
     Servo.getNearestStations(lat, long)
     .then(stations => {
-        console.log(stations);
         return res.json(stations)
     })
 })

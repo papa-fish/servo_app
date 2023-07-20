@@ -17,7 +17,8 @@ CREATE TABLE servos (
     revised INTEGER,
     comment TEXT,
     lat DOUBLE PRECISION NOT NULL,
-    long DOUBLE PRECISION NOT NULL
+    long DOUBLE PRECISION NOT NULL,
+    logo_url TEXT
 );
 
 ALTER TABLE servos ADD logo_url TEXT; 

@@ -13,3 +13,7 @@ export function fetchRandomStation(){
 export function fetchStationsByBound(queryParams) {
     return fetch('/api/stations/bounds?' + new URLSearchParams(queryParams))
 }
+
+export function fetchNearestStationsByLatLong(lat, long) {
+    return fetch(`/api/stations/nearest?lat=${lat}&long=${long}`).then(res => res.json())
+}
