@@ -10,7 +10,7 @@ function renderStations(stations) {
         let html = `
             <img class="logo" src= '../${stations[i].logo_url}'>
             <div>
-                <p class="station-details"><b>${stations[i].name}</b></p>
+                <p class="station-details"><b>${stations[i].name} ${stations[i].distance != undefined ?  Math.trunc(stations[i].distance * 1000)+ 'm': ''}</b></p>
                 <p class="station-details">${stations[i].address}</p>
             </div>
         `
@@ -24,7 +24,7 @@ function renderStations(stations) {
 export function fetchNearestStations(lat, long) {
     fetchNearestStationsByLatLong(lat, long)
     .then(res => {
-        console.log("Nearest stations list", res)
+        // console.log("Nearest stations list", res)
 
         // Remove the current list of stations
         var individualStations = nearestSection.getElementsByClassName('individual-station');
