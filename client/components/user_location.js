@@ -1,5 +1,3 @@
-
-
 export function userLocation(map, infoWindow) {
     infoWindow = new google.maps.InfoWindow();
 

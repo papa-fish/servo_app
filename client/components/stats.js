@@ -35,23 +35,3 @@ function renderStations(stats) {
         statsInfoSection.appendChild(stationItemsWrapper)
     }
 }
-
-/* <section class="stats-info">
-<header class="stats-header">
-  <div>Stats</div>
-</header>
-<div class="stats-total">
-  <div>total station: 5244</div>
-  <div>total owners: 32</div>
-</div>
-<div class="stats-items-wrapper">
-  <div class="stats-items">
-    <div>Caltech</div>
-    <div>5423</div>
-  </div>
-  <div class="stats-items">
-    <div>Newman</div>
-    <div>6</div>
-  </div>
-</div>
-</section> */

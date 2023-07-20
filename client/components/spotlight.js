@@ -24,7 +24,7 @@ function renderSpotlightInfo(station) {
     spotlightInfoSection.classList.add('spotlight-info')
     const template = `
     <header class="spotlight-header">
-    <div>SPOTLIGHT</div>
+    <div><h3>SPOTLIGHT<h3></div>
     </header>
     <div class="spotlight-refresh"><a class="refresh-link" href="">refresh</a></div>
     <div class="spotlight-logo"><img src= '../${station.logo_url}'></div>

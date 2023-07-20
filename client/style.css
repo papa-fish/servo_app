@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-  /* border: 1px solid red; */
+    color: #050606;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -9,20 +9,18 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    
-    
 }
 
 .flex-wrapper{
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  gap: 5px;
-  border-radius: 5px;
+  border: 5px solid #FBE7C6;
+  background-color: rgb(245, 245, 245);
 }
 
 .flex-wrapper > section {
   flex-grow: 1;
+  border: 5px solid #FBE7C6;
 }
 /* 
  * Always set the map height explicitly to define the size of the div element
@@ -66,31 +64,25 @@ img {
     margin-right: 10px;
 }
 
-.nearest-station {
-    
-}
-
 .nearest-station h3 {
     padding: 10px;
+    margin: 0px;
 }
 
 .center-location {
     padding: 10px;
-    border-bottom: 1px black solid;
 }
 
 .clock { 
-    border: 1px black solid;
     text-align: center;
     font-size: x-large;
     font-weight: bold;
     padding: 10px;
+    color: rgb(108, 206, 136);
 }
 
 .about {
     padding: 10px;
-    border: 1px black solid;
-    /* display: table; */
 }
 
 .team-name {
@@ -99,18 +91,17 @@ img {
 }
 
 .about p { 
-    /* display: table-cell;
-    vertical-align: middle; */
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     margin-top: 0px;
     margin-bottom: 0px;
+    font-weight: bold;
 }
 
 h3 {
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #f8889a;
 }
 
 footer {
@@ -120,12 +111,10 @@ footer {
 /* STATS SECTION */
 
 .stats-info{
-  background-color: rgb(248, 225, 196);
   padding: 10px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .stats-header{
-  font-size: 24px;
   font-weight: bold;
 }
 
@@ -144,21 +133,16 @@ footer {
   display: flex;
   font-weight: 100;
   justify-content:space-between;
-  border-top: 1px solid black;
+  border-top: 1px solid rgb(108, 206, 136);
   padding: 2px 0;
 }
 
 .stats-items-wrapper > div:nth-child(odd) {
-  background-color: rgb(244, 217, 198);
+  background-color: #FBE7C6;
 }
 
 
 /* SPOTLIGHT SECTION */
-
-.spotlight{
-  background-color: mistyrose;
-  border-bottom: 1px solid black
-}
 .spotlight-info{
   display: grid;
   box-sizing: border-box;
@@ -173,7 +157,6 @@ footer {
 }
 
 .spotlight-header{
-  font-size: 24px;
   font-weight: bold;
   grid-area: header;
 }
@@ -190,6 +173,10 @@ footer {
   align-items: start;
 }
 
+.spotlight-name {
+  color: rgb(108, 206, 136);
+}
+
 .spotlight-nameAddress{
   grid-area: nameAddress;
   font-size: 17px;
@@ -200,6 +187,38 @@ footer {
 /* LATEST PRICES */
 
 .latest-prices {
-  border: 1px black solid;
   padding: 10px;
+}
+
+.latest-prices p {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.mim {
+  color: #F652A0;
+}
+
+.luke {
+  color: #7F00FF;
+}
+
+.ben {
+  color: #FF10F0;
+}
+
+.suchi {
+  color: #7F00FF;
+}
+
+.wendy {
+  color: #F652A0;
+}
+
+.refresh-link {
+  color: rgb(108, 206, 136);
+}
+
+.team-name {
+  color: rgb(108, 206, 136);
 }

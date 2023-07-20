@@ -5,7 +5,7 @@ renderLatestPrices()
 function renderLatestPrices() {
     fetch('https://api.futures-api.com/last?symbol=BB', {
         headers: {
-            'x-api-key': 'gkpDAh2SyV3NrTx11y4nP7n5P1H67cYp3Wjuxru7',
+            'x-api-key': 'DnjtK2FJ3G7FvTeCgpaSe4OMlvXRWtnU9KaCWxZo',
         }
     })
         .then(res => res.json())
@@ -21,7 +21,7 @@ function renderLatestPrices() {
 
     fetch('https://api.futures-api.com/last?symbol=CL', {
         headers: {
-            'x-api-key': 'gkpDAh2SyV3NrTx11y4nP7n5P1H67cYp3Wjuxru7',
+            'x-api-key': 'DnjtK2FJ3G7FvTeCgpaSe4OMlvXRWtnU9KaCWxZo',
         }
     })
         .then(res => res.json())
@@ -37,7 +37,7 @@ function renderLatestPrices() {
     
     fetch('https://api.futures-api.com/last?symbol=NG', {
         headers: {
-            'x-api-key': 'gkpDAh2SyV3NrTx11y4nP7n5P1H67cYp3Wjuxru7',
+            'x-api-key': 'DnjtK2FJ3G7FvTeCgpaSe4OMlvXRWtnU9KaCWxZo',
          }
      })
         .then(res => res.json())
