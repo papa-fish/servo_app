@@ -1,4 +1,4 @@
-import { fetchStations } from "../servos_api.js";
+import { fetchStations, fetchNearestStationsByLatLong } from "../servos_api.js";
 
 const nearestSection = document.querySelector('.nearest-station')
 
@@ -19,4 +19,19 @@ function renderStations(stations) {
         station.innerHTML = html
         nearestSection.appendChild(station)
     }
+}
+
+export function fetchNearestStations(lat, long) {
+    fetchNearestStationsByLatLong(lat, long)
+    .then(res => {
+        console.log("Nearest stations list", res)
+
+        // Remove the current list of stations
+        var individualStations = nearestSection.getElementsByClassName('individual-station');
+
+        while(individualStations[0]) {
+            individualStations[0].parentNode.removeChild(individualStations[0]);
+        }
+        renderStations(res)
+    })
 }

@@ -29,7 +29,7 @@ function getTotalNumRecords() {
 }
 
 function getNearestStations(givenLat, givenLong) {
-    const sql = `SELECT id, name, lat, long, 
+    const sql = `SELECT id, name, address,owner, logo_url, lat, long, 
     6371 * 2 * ASIN(SQRT(POWER(SIN(RADIANS(${givenLat} - lat) / 2), 2) +
     COS(RADIANS(${givenLat})) * COS(RADIANS(lat)) *
     POWER(SIN(RADIANS(${givenLong} - long) / 2), 2))) AS distance
