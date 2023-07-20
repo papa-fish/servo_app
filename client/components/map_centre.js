@@ -2,8 +2,6 @@ import { fetchNearestStations } from "./nearest.js";
 
 const mapCenter = document.querySelector(".center-location");
 
-// const geocoder = new google.maps.Geocoder();
-
 export async function mapCentreLocation(position, map) {
   const { Geocoder } = await google.maps.importLibrary("geocoding"); 
   const geocoder = new Geocoder()

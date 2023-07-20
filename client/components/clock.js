@@ -1,8 +1,5 @@
-// document.querySelector(".clock")
-
 export function currentTime() {
     let date = new Date();
-    // let day = date.getDay(); 
     let hh = date.getHours();
     let mm = date.getMinutes();
     let ss = date.getSeconds();

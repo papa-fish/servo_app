@@ -29,51 +29,9 @@ async function initMap() {
   
   const bounds = map.getBounds();
   renderMarkersByBound(bounds)
-  //   for (let station of stations) {
-  //     let position = { lat: station.lat, lng: station.long };
-      
-  //     const marker = new google.maps.Marker({
-  //       position: position,
-  //       map,
-  //       icon: {
-  //         url: `${station.logo_url}`,
-  //         scaledSize: new google.maps.Size(35, 35),
-  //       }
-  //     });
-
-  //     const contentString =`<h4>${station.name}</h4><p>${station.address}</p>`;
-  //     const infowindow = new google.maps.InfoWindow({
-  //       content: contentString,
-  //     });
-
-  //     marker.addListener("click", () => {
-  //       infowindow.open({
-  //         anchor: marker,
-  //         map,
-  //       });
-  //     });
-
-  //     const stationName =`<h4>${station.name}</h4>`;
-  //     const infoStationNamewindow = new google.maps.InfoWindow({
-  //       content: stationName,
-  //     });
-  //     marker.addListener("mouseover", () => {
-  //       infoStationNamewindow.open({
-  //         anchor: marker,
-  //         map,
-  //       });
-
-  //       marker.addListener('mouseout', () => {
-  //         infoStationNamewindow.close()
-  //       })
-  //     });
-  //   }
-  // });
 }
 
 initMap();
-
-
 
 function renderMarkersByBound(bounds) {
   fetchStationsByBound({

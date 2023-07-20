@@ -8,7 +8,6 @@ function findAll() {
 
 function findOwners() {
     const sql = `SELECT DISTINCT owner FROM servos;`
-    // let ownerList = {}
     return db.query(sql).then(owners => owners.rows)
 }
 
