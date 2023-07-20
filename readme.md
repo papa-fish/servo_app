@@ -17,6 +17,9 @@ A single-page application to allow the user to see service stations in their are
 
 - Spotlight feature to display a random station with a link to move to the station location on the map
 
+![Servo app screenshot](client/images/servo-app.png)
+
+
 ### Technologies used
 Javascript
 EJS
