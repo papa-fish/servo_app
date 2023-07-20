@@ -4,6 +4,7 @@ import { userLocation } from "./components/user_location.js";
 import { spotlightClick } from "./components/spotlight.js";
 
 let map, infoWindow;
+let markers = [];
 
 async function initMap() {
   let position = { lat: -35.9211754139999, lng: 145.638305815 };
@@ -27,8 +28,8 @@ async function initMap() {
   userLocation(map, infoWindow)
   spotlightClick(map, infoWindow)
   
-  const bounds = map.getBounds();
-  renderMarkersByBound(bounds)
+  // const bounds = map.getBounds();
+  // renderMarkersByBound(bounds)
 }
 
 initMap();
@@ -41,6 +42,10 @@ function renderMarkersByBound(bounds) {
     minLat: bounds.Va.lo,
   })
   .then((stations) => {
+
+    // Remove the previous markers first
+    removeMarkers();
+
     for (let station of stations) {
       let position = { lat: station.lat, lng: station.long };
       
@@ -52,6 +57,8 @@ function renderMarkersByBound(bounds) {
           scaledSize: new google.maps.Size(35, 35),
         }
       });
+
+      markers.push(marker);
 
       const contentString =`<h4>${station.name}</h4><p>${station.address}</p>`;
       const infowindow = new google.maps.InfoWindow({
@@ -81,4 +88,11 @@ function renderMarkersByBound(bounds) {
       });
     }
   });
+}
+
+function removeMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
 }
