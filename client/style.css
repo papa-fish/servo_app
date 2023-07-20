@@ -4,17 +4,21 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+
 .grid-wrapper {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    border: 1px black solid;
+    
+    
 }
 
 .flex-wrapper{
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  gap: 5px;
+  border-radius: 5px;
 }
 
 .flex-wrapper > section {
@@ -26,7 +30,7 @@
  */
  #map {
   width: 100%;
-  height: 100vh;
+  
 }
   
   /* 
@@ -43,12 +47,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 6fr;
     padding: 10px;
-    border: 1px black solid;
 }
 
 .station-details {
     margin-top: 0;
     margin-bottom: 0;
+    
 }
 
 img {
@@ -63,7 +67,7 @@ img {
 }
 
 .nearest-station {
-    border: 1px black solid;
+    
 }
 
 .nearest-station h3 {
@@ -72,7 +76,7 @@ img {
 
 .center-location {
     padding: 10px;
-    border: 1px black solid;
+    border-bottom: 1px black solid;
 }
 
 .clock { 
@@ -153,6 +157,7 @@ footer {
 
 .spotlight{
   background-color: mistyrose;
+  border-bottom: 1px solid black
 }
 .spotlight-info{
   display: grid;
