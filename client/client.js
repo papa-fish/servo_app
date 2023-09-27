@@ -29,17 +29,17 @@ async function initMap() {
   spotlightClick(map, infoWindow)
   
   // const bounds = map.getBounds();
-  // renderMarkersByBound(bounds)
+  // renderMarkersByBound(bounds);
 }
-
 initMap();
 
 function renderMarkersByBound(bounds) {
+  // console.log(bounds)
   fetchStationsByBound({
-    maxLong: bounds.Ha.hi,
-    maxLat: bounds.Va.hi,
-    minLong: bounds.Ha.lo,
-    minLat: bounds.Va.lo,
+    maxLong: bounds.Ia.hi,
+    maxLat: bounds.Ua.hi,
+    minLong: bounds.Ia.lo,
+    minLat: bounds.Ua.lo,
   })
   .then((stations) => {
 
