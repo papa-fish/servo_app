@@ -10,7 +10,6 @@ async function initMap() {
   let position = { lat: -35.9211754139999, lng: 145.638305815 };
   const { Map } = await google.maps.importLibrary("maps");
 
-
   map = new Map(document.getElementById("map"), {
     zoom: 13,
     center: position,
@@ -21,27 +20,31 @@ async function initMap() {
 
   google.maps.event.addListener(map, 'idle', function() {
     const bounds = map.getBounds();
-    renderMarkersByBound(bounds)
-  })
+    renderMarkersByBound(map);
+  });
 
-  mapCentreLocation(position, map)
-  userLocation(map, infoWindow)
-  spotlightClick(map, infoWindow)
-  
-  // const bounds = map.getBounds();
-  // renderMarkersByBound(bounds);
+  mapCentreLocation(position, map);
+  userLocation(map, infoWindow);
+  spotlightClick(map, infoWindow);
 }
+
 initMap();
 
-function renderMarkersByBound(bounds) {
-  // console.log(bounds)
+function renderMarkersByBound(map) {
+  const bounds = map.getBounds();
+  console.log(bounds);
+  if (!bounds) {
+    console.log("Map bounds are undefined");
+    return;
+  }
+
   fetchStationsByBound({
-    maxLong: bounds.Ia.hi,
-    maxLat: bounds.Ua.hi,
-    minLong: bounds.Ia.lo,
-    minLat: bounds.Ua.lo,
-  })
-  .then((stations) => {
+    maxLong: bounds.getNorthEast().lng(),
+    maxLat: bounds.getNorthEast().lat(),
+    minLong: bounds.getSouthWest().lng(),
+    minLat: bounds.getSouthWest().lat(),
+  }).then((stations) => {
+
 
     // Remove the previous markers first
     removeMarkers();
